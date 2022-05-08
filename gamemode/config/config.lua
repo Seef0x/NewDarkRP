@@ -204,8 +204,6 @@ GM.Config.demotetime                    = 120
 GM.Config.doorcost                      = 30
 -- entremovedelay - how long to wait before removing a bought entity after disconnect.
 GM.Config.entremovedelay                = 0
--- gunlabweapon - The weapon that the gunlab spawns.
-GM.Config.gunlabweapon                  = "weapon_p2282"
 -- jailtimer - Sets the jailtimer (in seconds).
 GM.Config.jailtimer                     = 120
 -- lockdowndelay - The amount of time a mayor must wait before starting the next lockdown.
@@ -440,7 +438,6 @@ GM.Config.PocketBlacklist = {
     ["path_"] = true,
     ["prop_physics"] = true,
     ["money_printer"] = true,
-    ["gunlab"] = true,
     ["prop_dynamic"] = true,
     ["prop_vehicle_prisoner_pod"] = true,
     ["keypad_wire"] = true,
@@ -467,7 +464,6 @@ GM.Config.noStripWeapons = {
 -- This only applies when removeclassitems is set to true.
 -- Note: entities will only be removed when the player changes to a job that is not allowed to have the entity.
 GM.Config.preventClassItemRemoval = {
-    ["gunlab"] = false,
     ["microwave"] = false,
     ["spawned_shipment"] = false,
 }

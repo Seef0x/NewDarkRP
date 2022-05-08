@@ -143,15 +143,6 @@ DarkRP.createEntity("Tip Jar", {
     allowTools = true,
 })
 
-DarkRP.createEntity("Gun lab", {
-    ent = "gunlab",
-    model = "models/props_c17/TrapPropeller_Engine.mdl",
-    price = 500,
-    max = 1,
-    cmd = "buygunlab",
-    allowed = TEAM_GUN
-})
-
 if not DarkRP.disabledDefaults["modules"]["hungermod"] then
     DarkRP.createEntity("Microwave", {
         ent = "microwave",
