@@ -387,8 +387,6 @@ GM.Config.CategoryOverride = {
     },
     entities = {
         ["Money printer"]                       = "Other",
-        ["Gun lab"]                             = "Other",
-
     },
     shipments = {
         ["AK47"]                                = "Rifles",
