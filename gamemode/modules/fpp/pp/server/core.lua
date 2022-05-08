@@ -1,6 +1,8 @@
 FPP = FPP or {}
 FPP.DisconnectedPlayers = FPP.DisconnectedPlayers or {}
 
+util.AddNetworkString("FPP_CheckBuddy")
+
 local PLAYER = FindMetaTable("Player")
 local ENTITY = FindMetaTable("Entity")
 
@@ -658,9 +660,9 @@ function FPP.PlayerInitialSpawn(ply)
         if not IsValid(ply) then return end
         RP:AddAllPlayers()
         RP:RemovePlayer(ply)
-        umsg.Start("FPP_CheckBuddy", RP) --Message everyone that a new player has joined
-            umsg.Entity(ply)
-        umsg.End()
+        net.Start("FPP_CheckBuddy") --Message everyone that a new player has joined
+            net.WriteEntity(ply)
+        net.Send(RP)
     end)
 
     local entities = {}
