@@ -69,6 +69,12 @@ DarkRP.getIncompleteChatCommands = fn.Curry(fn.Filter, 3)(fn.Compose{fn.Not, che
 Chat commands
 ---------------------------------------------------------------------------]]
 DarkRP.declareChatCommand{
+    command = "advert",
+    description = "Advertising chat on the server.",
+    delay = 1.5
+}
+
+DarkRP.declareChatCommand{
     command = "pm",
     description = "Send a private message to someone.",
     delay = 1.5
@@ -139,4 +145,61 @@ DarkRP.declareChatCommand{
     command = "credits",
     description = "Send the DarkRP credits to someone.",
     delay = 1.5
+}
+
+--[[---------------------------------------------------------------------------
+Hook stub
+---------------------------------------------------------------------------]]
+DarkRP.hookStub{
+    name = "canAdvert",
+    description = "Whether someone can place an advertisement billboard.",
+    parameters = {
+        {
+            name = "player",
+            description = "The player trying to advertise.",
+            type = "Player"
+        },
+        {
+            name = "arguments",
+            description = "The advertisement itself.",
+            type = "table"
+        }
+    },
+    returns = {
+        {
+            name = "canAdvert",
+            description = "A yes or no as to whether the player can place the billboard.",
+            type = "boolean"
+        },
+        {
+            name = "message",
+            description = "The message that is shown when they can't place the billboard.",
+            type = "string"
+        }
+    },
+    realm = "Server"
+}
+
+DarkRP.hookStub{
+    name = "playerAdverted",
+    description = "Called when a player placed an advertisement billboard.",
+    parameters = {
+        {
+            name = "player",
+            description = "The player.",
+            type = "Player"
+        },
+        {
+            name = "arguments",
+            description = "The advertisement itself.",
+            type = "string"
+        },
+        {
+            name = "entity",
+            description = "The placed advertisement billboard.",
+            type = "Entity"
+        }
+    },
+    returns = {},
+    realm = "Server"
 }

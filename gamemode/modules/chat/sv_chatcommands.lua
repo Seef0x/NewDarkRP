@@ -3,6 +3,34 @@ util.AddNetworkString("DarkRP_Credits")
 --[[---------------------------------------------------------
 Talking
  ---------------------------------------------------------]]
+local function Advert(ply, args)
+    local DoSay = function(text)
+        if text == "" then
+            DarkRP.notify(ply, 1, 4, DarkRP.getPhrase("invalid_x", DarkRP.getPhrase("arguments"), ""))
+            return ""
+        end
+
+        if not ply:Alive() then
+            DarkRP.notify(ply, 1, 4, DarkRP.getPhrase("must_be_alive_to_do_x", DarkRP.getPhrase("advert")))
+            return ""
+        end
+
+        local col = team.GetColor(ply:Team())
+        local col2 = Color(239, 219, 0)
+        local phrase = DarkRP.getPhrase("advert")
+        local name = ply:Nick()
+        for _, v in ipairs(player.GetAll()) do
+            DarkRP.talkToPerson(v, col, "(" .. phrase .. ") " .. name, col2, text, ply)
+        end
+
+        hook.Run("playerAdverted", ply, text)
+    end
+    return args, DoSay
+end
+DarkRP.defineChatCommand("advertisement", Advert, true, 1.5)
+DarkRP.defineChatCommand("advert", Advert, true, 1.5)
+DarkRP.defineChatCommand("adv", Advert, true, 1.5)
+
 local function PM(ply, args)
     local namepos = string.find(args, " ")
     if not namepos then

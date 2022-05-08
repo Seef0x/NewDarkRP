@@ -239,6 +239,7 @@ local my_language = {
     group = "(group)",
     demote = "(DEMOTE)",
     ooc = "OOC",
+    advert = "Advert",
     radio_x = "Radio %d",
 
     talk = "talk",
