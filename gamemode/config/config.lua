@@ -386,7 +386,6 @@ GM.Config.CategoryOverride = {
         ["Mayor"]                               = "Civil Protection",
     },
     entities = {
-        ["Drug lab"]                            = "Other",
         ["Money printer"]                       = "Other",
         ["Gun lab"]                             = "Other",
 
