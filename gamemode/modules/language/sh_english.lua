@@ -177,9 +177,6 @@ local my_language = {
     sold_x_doors = "You have sold %d doors for %s!",
 
     -- Entities
-    drugs = "drugs",
-    Drugs = "Drugs",
-    drug_lab = "Drug Lab",
     gun_lab = "Gun Lab",
     any_lab = "any lab",
     gun = "gun",
