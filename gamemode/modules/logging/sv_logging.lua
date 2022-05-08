@@ -1,3 +1,5 @@
+util.AddNetworkString("DRPLogMsg")
+
 local function AdminLog(message, colour, allowedPlys)
     local RF = RecipientFilter()
     for _, v in pairs(allowedPlys) do
@@ -8,12 +10,12 @@ local function AdminLog(message, colour, allowedPlys)
         end
     end
 
-    umsg.Start("DRPLogMsg", RF)
-        umsg.Short(colour.r)
-        umsg.Short(colour.g)
-        umsg.Short(colour.b) -- Alpha is not needed
-        umsg.String(message)
-    umsg.End()
+    net.Start("DRPLogMsg")
+        net.WriteUInt(colour.r, 16)
+        net.WriteUInt(colour.g, 16)
+        net.WriteUInt(colour.b, 16) -- Alpha is not needed
+        net.WriteString(message)
+    net.Send(RF)
 end
 
 local DarkRPFile

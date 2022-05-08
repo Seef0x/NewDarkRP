@@ -3,9 +3,8 @@ local plyMeta = FindMetaTable("Player")
 --[[---------------------------------------------------------------------------
 Show a black screen
 ---------------------------------------------------------------------------]]
-local function blackScreen(um)
-    local toggle = um:ReadBool()
-    if toggle then
+local function blackScreen()
+    if net.ReadBool() then
         local black = color_black
         local w, h = ScrW(), ScrH()
         hook.Add("HUDPaintBackground", "BlackScreen", function()
@@ -16,7 +15,7 @@ local function blackScreen(um)
         hook.Remove("HUDPaintBackground", "BlackScreen")
     end
 end
-usermessage.Hook("blackScreen", blackScreen)
+net.Receive("blackScreen", blackScreen)
 
 --[[---------------------------------------------------------------------------
 Wrap strings to not become wider than the given amount of pixels

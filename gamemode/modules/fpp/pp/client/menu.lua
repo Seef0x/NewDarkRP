@@ -662,9 +662,9 @@ RetrieveBlockedModels = function(len)
 end
 net.Receive("FPP_BlockedModels", RetrieveBlockedModels)
 
-RetrieveRestrictedTool = function(um)
-    local tool, admin, Teams = um, 0, {}--Settings when it's not a usermessage
-    if not istable(um) then
+RetrieveRestrictedTool = function(tbl)
+    local tool, admin, Teams = tbl, 0, {}--Settings when it's not a net
+    if not istable(tbl) then
         tool = net.ReadString()
         admin = net.ReadUInt(2)
         local teamCount = net.ReadUInt(10)
@@ -1156,7 +1156,7 @@ local function UpdateMenus()
 end
 hook.Add("SpawnMenuOpen", "FPPMenus", UpdateMenus)
 
-function FPP.SharedMenu(um)
+function FPP.SharedMenu()
     local ent = net.ReadEntity()
     local frame = vgui.Create("DFrame")
     if not IsValid(ent) then frame:Close() return end
