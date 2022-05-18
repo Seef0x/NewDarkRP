@@ -1,5 +1,3 @@
-util.AddNetworkString("_DarkRP_CustomAnim")
-
 local Anims = {}
 
 -- Load animations after the languages for translation purposes
@@ -74,6 +72,7 @@ hook.Add("KeyPress", "darkrp_animations", function(ply, key)
 end)
 
 if SERVER then
+    util.AddNetworkString("_DarkRP_CustomAnim")
     local function CustomAnim(ply, cmd, args)
         if ply:EntIndex() == 0 then return end
         local Gesture = tonumber(args[1] or 0)
