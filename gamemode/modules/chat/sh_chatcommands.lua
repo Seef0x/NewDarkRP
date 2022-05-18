@@ -69,7 +69,19 @@ DarkRP.getIncompleteChatCommands = fn.Curry(fn.Filter, 3)(fn.Compose{fn.Not, che
 Chat commands
 ---------------------------------------------------------------------------]]
 DarkRP.declareChatCommand{
+    command = "advertisement",
+    description = "Advertising chat on the server.",
+    delay = 1.5
+}
+
+DarkRP.declareChatCommand{
     command = "advert",
+    description = "Advertising chat on the server.",
+    delay = 1.5
+}
+
+DarkRP.declareChatCommand{
+    command = "adv",
     description = "Advertising chat on the server.",
     delay = 1.5
 }
