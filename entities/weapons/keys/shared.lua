@@ -1,10 +1,10 @@
 AddCSLuaFile()
 
-util.AddNetworkString("anim_keys")
-util.AddNetworkString("KeysMenu")
-
 if SERVER then
     AddCSLuaFile("cl_menu.lua")
+    
+    util.AddNetworkString("anim_keys")
+    util.AddNetworkString("KeysMenu")
 end
 
 if CLIENT then
