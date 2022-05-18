@@ -388,7 +388,7 @@ Display notifications
 local notificationSound = GM.Config.notificationSound
 local function DisplayNotify()
     local txt = net.ReadString()
-    GAMEMODE:AddNotify(txt, net.ReadShort(), net.ReadLong())
+    GAMEMODE:AddNotify(txt, net.ReadUInt(16), net.ReadUInt(32))
     surface.PlaySound(notificationSound)
 
     -- Log to client console

@@ -5,7 +5,7 @@ local function MsgDoVote()
     local _, chatY = chat.GetChatBoxPos()
 
     local question = net.ReadString()
-    local voteid = net.ReadShort()
+    local voteid = net.ReadUInt(16)
     local timeleft = net.ReadFloat()
     if timeleft == 0 then
         timeleft = 100
@@ -98,7 +98,7 @@ end
 net.Receive("DoVote", MsgDoVote)
 
 local function KillVoteVGUI()
-    local id = net.ReadShort()
+    local id = net.ReadUInt(16)
 
     if VoteVGUI[id .. "vote"] and VoteVGUI[id .. "vote"]:IsValid() then
         VoteVGUI[id .. "vote"]:Close()
